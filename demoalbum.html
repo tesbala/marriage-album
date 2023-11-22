@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>album</title>
+<style type="text/css">
+    body{
+        overflow: hidden;
+        background-size: 100% 100%;
+        background-image: url('img/back.jpeg') ;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    #album{
+        width: 1420px;
+        height: 400px;
+        margin: 5% auto;
+        margin-top:170px;
+    }
+    .img1{
+        width:50px;
+    }
+</style
+</head>
+<body>
+<div id="album">
+    <div style="background: url('img/a1.jpg'); background-size: 100% 100%;"></div>
+    <div style="background: url('img/a2.png'); background-size: cover;"></div>
+    <div style="background: url('img/a3.jpg'); background-size: cover;"></div>
+    <div style="background: url('img/a8.jpg'); background-size: cover;"></div>
+    <div style="background: url('img/a4.jpg'); background-size: cover;"></div>
+    <div style="background: url('img/a4.jpg'); background-size: cover;"></div>
+    <div style="background: url('img/a5.jpg'); background-size: cover;"></div>
+    <div style="background: url('img/a6.jpg'); background-size: cover;"></div>
+    <div style="background: url('img/a7.jpg'); background-size: cover;"></div>
+    <div style="background: url('img/a3.jpg'); background-size: cover;"></div>
+     <!-- only even number-->
+   
+</div>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+<script src="js/turn.js"></script>
+<script>
+    $(document).ready(function() {
+        var sound = new Howl({
+            src: ['img/a.mp3'] 
+        });
+
+        $('#album').turn({
+            gradients: true,
+            acceleration: true,
+            when: {
+                turning: function(event, page, view) {
+                    // Play the sound when a page is turned
+                    sound.play();
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
